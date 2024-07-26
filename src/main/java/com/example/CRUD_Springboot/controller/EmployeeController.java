@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
 
+    //@Autowired help in dependency injection
+    //Here @autowired injects 'EmployeeService' into this field
+    //when creating the 'EmployeeController'
     @Autowired
     private EmployeeService employeeService;
 
+    
     @GetMapping
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
